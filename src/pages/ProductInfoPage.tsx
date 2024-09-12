@@ -27,7 +27,6 @@ export const ProductInfoPage = () => {
             });
     }, []);
 
-
     return (
         <div className="flex items-center justify-center">
             <div className="flex items-center justify-center flex-col w-[50%]">
@@ -46,14 +45,25 @@ export const ProductInfoPage = () => {
                     ${imgNumber == 0 && 'fill-slate-200'}`} />
                 </div>
             </div>
-            <div className="w-[50%]">
+            <div className="w-[15%]">
+                <p>
+                    <span className="font-semibold">Название: </span> 
+                    {state.colors[colorNumber].name}
+                </p>
+                <p>
+                    <span className="font-semibold">Описание: </span> 
+                    {state.colors[colorNumber].description}
+                </p>
+            </div>
+            <div className="w-[35%]">
                 <div className="flex mb-4">
                     {state.colors.map((color: Color, index: number) => (
                         <img onClick={() => {
                             setSizeNumber(null)
                             setColorNumber(index)
                         }} 
-                        className="max-w-[10%] mr-2 last:mr-0 cursor-pointer" 
+                        className="max-w-[10%] mr-2 last:mr-0 cursor-pointer"
+                        key={index} 
                         src={color.images[0]} alt={color.name} />
                     ))}
                 </div>
@@ -64,7 +74,7 @@ export const ProductInfoPage = () => {
                         return (
                             <button onClick={() => setSizeNumber(size)}
                             disabled={!availableSizes.includes(index+1)} 
-                            className="mr-4 last:mr-0">
+                            className="mr-4 last:mr-0" key={index}>
                                 <h4 className={`font-medium text-[20px]
                                 p-1 bg-slate-400 rounded-lg
                                 ${availableSizes.includes(index+1) 

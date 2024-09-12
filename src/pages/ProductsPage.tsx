@@ -20,7 +20,7 @@ export const ProductsPage = () => {
     return (
         <div className="flex gap-4">
             {products?.map((product, index) => (
-                <Link to="/product" state={product} 
+                <Link to="/product" state={product} key={index} 
                 className="max-w-[20%] max-h-[40%]">
                     <img src={product.colors[index].images[0]} alt={product.name} />
                     <h3>{product.name}</h3>

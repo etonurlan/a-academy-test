@@ -9,7 +9,7 @@ export const Basket = () => {
     return (
         <div className="flex items-center justify-center flex-wrap">
             {basketProducts?.map((product, index) => (
-                <div className="flex flex-col max-w-[20%] mr-5
+                <div key={index} className="flex flex-col max-w-[20%] mr-5
                 [&:nth-child(4n)]:mr-0 max-h-[20%]">
                     <img src={product.product.images[0]} alt={product.product.name} />
                     <div className="flex flex-col items-center justify-center">
